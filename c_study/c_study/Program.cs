@@ -63,6 +63,7 @@
              * 주석의 내용은 명확!
              * 주석은 코드 변경에 따라 업데이트!
              * 필요한 경우에만 사용(코드 명확 의도 확실하면 굳이 사용 x)
+             * ctrl K C : 주석 처리 / ctrl K U : 주석 해제
              */
 
             //코드 자동 완성과 템플릿 이용
@@ -127,9 +128,34 @@
              *-작은 데이터를 큰 데이터에 대입 시 큰 데이터 타입으로 자동 변환
              *-리터럴 값이 대입되는 경우 리터럴 값의 데이터 타입을 판별해 변수에 암시적으로 형변환
              *-정수형과 부동소수점형 간의 연산 결과는 부동소수점형으로 변환(더 큰 데이터 타입으로 변환)
-             *
-             *
              */
+
+            //입력과 출력
+            //출력은 write, writeline 함수로, 입력은 readline 함수로
+            Console.Write("Enter your name : ");
+
+            //readline 위에 마우스 올리면 항상 string으로 입력값을 저장한다는걸 알 수 있음
+            string name = Console.ReadLine();
+            Console.WriteLine("Hello, {0}!", name);
+
+            //한 줄에 여러 값 입력받기
+            Console.Write("Enter two numbers : ");
+            string input = Console.ReadLine(); //"10 20" 같은 문자열을 입력받음
+
+            string[] numbers = input.Split(' '); //문자열을 공백으로 구분하여 배열로 만듦
+            int num1 = int.Parse(numbers[0]); //첫 번째 값을 정수로 변환하여 저장
+            int num2 = int.Parse(numbers[1]); //첫 번째 값을 정수로 변환하여 저장
+
+            int sum = num1 + num2;
+
+            Console.WriteLine("The sum of {0} and {1} is {2}.", num1, num2, sum);
+
+            //var 키워드 : var를 사용해 변수를 선언하면 자료형이 초기화 값에 따라 컴파일러에 의해 자동 결정
+            var num = 10; //int 자료형으로 결정됨
+            var name_kero = "kero"; //string 자료형으로 결정됨
+            var pi = 3.141592; //double 자료형으로 결정됨
+
+
 
         }
     }
