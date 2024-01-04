@@ -10,29 +10,29 @@
 
             //1. 프로그래밍 기본 요소
             /*
+             * 프로젝트 생성 시 기본적으로 작성된 코드 설명
              * 
-             * 
-            //c# 에서 기본적으로 제공하는 namespace 를 사용하기 위해 참조해야하는 코드
-            //console 클래스를 사용하기 위해 필요 
-            using System;
+                //c# 에서 기본적으로 제공하는 namespace 를 사용하기 위해 참조해야하는 코드
+                //console 클래스를 사용하기 위해 필요 
+                using System;
             
-            //클래스 및 기타 namespace의 컨테이너
-            namespace HelloWorld
-            //
-            {
-                //c#클래스를 정의하는 키워드
-                //클래스명 = program
-                class program
+                //클래스 및 기타 namespace의 컨테이너
+                namespace HelloWorld
+                //
                 {
-                    //c#의 진입점(entry point)
-                    //main 메서드는 프로그램이 시작할 때 자동으로 호출되는 메서드로 필수
-                    static void Main(string[] args)
+                    //c#클래스를 정의하는 키워드
+                    //클래스명 = program
+                    class program
                     {
-                        //콘솔에 출력할 내용을 지정하는 코드
-                        Console.WriteLine("Hello World!");
+                        //c#의 진입점(entry point)
+                        //main 메서드는 프로그램이 시작할 때 자동으로 호출되는 메서드로 필수
+                        static void Main(string[] args)
+                        {
+                            //콘솔에 출력할 내용을 지정하는 코드
+                            Console.WriteLine("Hello World!");
+                        }
                     }
                 }
-            }
              */
 
             //줄 바꿈 문자열 추가하여 다음 WriteLine 작성 시 하단에 출력
@@ -155,8 +155,151 @@
             var name_kero = "kero"; //string 자료형으로 결정됨
             var pi = 3.141592; //double 자료형으로 결정됨
 
+            //3. 연산자
+            /*
+             * 산술 연산자
+             * + - * / %
+             * 
+             * 복합 대입 연산자
+             * += -= *= /= %=
+             * 
+             * 증감 연산자
+             * ++ --
+             * ex)++x; 먼저 1을 증가시키고 그 줄의 코드를 처리
+             * ex)x++; 그 줄의 코드를 먼저 처리한 후 마지막에 1 증가
+             * 
+             * 관계 연산자
+             * == != > < >= <= : 결과값이 true or false 로 나타남
+             * 
+             * 논리 연산자
+             * || && ! : 결과값이 true or false 로 나타남
+             * 
+             * 비트 연산자 : 이진수 연산(비트 단위로 데이터 조작)
+             * & | ^ ~ << >>
+             * 
+             *연산자의 우선순위
+             *괄호 > 단항 연산자 > 산술 연산자 > 시프트 연산자 > 관계 연산자 > 논리 연산자 > 할당 연산자
+             *단항(++ -- + - ! 등) / 할당(= +=, -= *= /= 등)
+             */
 
+            //관계 논리 연산자 예시
+            Console.WriteLine("관계연산자");
+            Console.WriteLine(num1 == num2);
+            Console.WriteLine(num1 != num2);
+            Console.WriteLine(num1 >  num2);
+            Console.WriteLine(num1 <  num2);
+            Console.WriteLine(num1 >= num2);
+            Console.WriteLine(num1 <= num2);
+            Console.WriteLine();
 
+            Console.WriteLine("논리연산자");
+            Console.WriteLine(num1 > 0 && num1 < 20);
+            Console.WriteLine(num1 < 0 || num1 > 20);
+            Console.WriteLine(!(num1 > 0 && num1 < 20));
+            Console.WriteLine();
+
+            //비트 연산자 예시
+            int bit_1 = 0b1100; //12
+            int bit_2 = 0b1010; //10
+
+            //& : 두 값이 모두 1일 때만 1 아니면 0 반환
+            int bit_and = bit_1 & bit_2; //0b1000 (8)
+
+            //| : 둘 중에 하나라도 1이면 1 아니면 0 반환
+            int bit_or = bit_1 | bit_2; //0b1110 (14)
+
+            //^ : xor로 두 값이 서로 다를 때 1 같으면 0 반환
+            int bit_xor = bit_1 ^ bit_2; //0b0110 (6)
+
+            //~ : 부정 비트 값을 1이면 0으로 0이면 1로 변환
+            int bit_not = ~bit_1; //0b0011 (3)
+
+            //<< >> : 비트를 왼쪽 오른쪽으로 이동 이동 후 원 자리엔 0 삽입
+            int bit_3 = 0b1011; //11
+            int bit_leftShift = bit_3 << 2; //0b101100 (44)
+            int bit_rightShift = bit_3 >> 1; //0b0101 (5)
+
+            //4. 문자열 처리 기능 및 메서드
+            /*
+             * 초기화 방법
+             * string str1 = "Hello, World!"; //리터럴 문자열 사용해 초기화
+             * string str2 = new string('h', 5); //문자'h'가 5개로 구성된 문자열 생성하여 초기화
+             * 
+             * 연결
+             * string str3 = str1 + " " + str2; //+ 를 이용해 문자열 간 연결 가능
+             * 
+             * 분할 : 하나의 문자열을 여러 개로 분할하기 때문에 배열을 이용
+             * string[] words = str1.Split(','); //쉼표(,)로 구분하여 문자열을 문자열 배열로 분할
+             * 
+             * 검색
+             * int index = str1.IndexOf("World"); //특정한 문자열의 첫 번째 인덱스를 찾아 변수에 저장
+             * 
+             * 대체
+             * string newStr = str.Replace("World", "Universe"); //World를 Universe로 대체 한 후 새로운 문자열에 저장
+             * 
+             * 변환
+             * string str = "123";
+             * int num = int.Parse(str); //숫자로 구성된 문자열을 int 형으로 변환
+             * 
+             * int num = 123;
+             * string str = num.ToString(); //int형 숫자를 문자형으로 변환
+             * 
+             * 비교
+             * -값 비교 : 관계 연산자를 이용한 비교
+             * string str11 = "Hello";
+             * string str22 = "World";
+             * bool isEqual = str11 == str22;
+             * 
+             * -대소 비교 : 사전식 순서에 따라 비교하며 문자의 길이가 아니라 문자의 우선순위를 기준으로 판단
+             * int compare = string.Compare(str11, str22); //compare 변수가 0보다 작으면 str11이 작고 0이면 같으며 0보다 크면 str11가 큼
+             * 
+             * 포멧팅 : 다른 문자열 변수들을 합쳐 하나의 문자열 변수로 만들기
+             * -형식화
+             * string name = "John";
+             * int age = 30;
+             * string message = string.Format("My name is {0} and I`m {1}, years old.", name, age);
+             * 
+             * -보간
+             * string message = $"My name is {name} and I`m {age}, years old.";
+             * 
+             */
+
+            //예제1
+            //1. 이름과 나이를 입력받아 출력하기
+            Console.WriteLine("이름을 입력하세요 : ");
+            string exam_1_name = Console.ReadLine();
+            Console.WriteLine("나이를 입력하세요 : ");
+            string exam_1_age = Console.ReadLine();
+            Console.WriteLine("입력받은 이름은 {0} 이고, 나이는 {1} 입니다", exam_1_name, exam_1_age);
+
+            //2. 두 수를 입력 받고 사칙연산의 결과 출력하기
+            Console.WriteLine("두 수를 띄어쓰기로 구분하여 입력해 주세요 : ");
+            string exam_1_num = Console.ReadLine();
+            string[] exam_1_numSprit = exam_1_num.Split(' ');
+
+            float[] exam_1_numInt = [0, 0];
+            exam_1_numInt[0] = float.Parse(exam_1_numSprit[0]);
+            exam_1_numInt[1] = float.Parse(exam_1_numSprit[1]);
+
+            Console.WriteLine("{0} + {1} = {2}", exam_1_numInt[0], exam_1_numInt[1], exam_1_numInt[0] + exam_1_numInt[1]);
+            Console.WriteLine("{0} - {1} = {2}", exam_1_numInt[0], exam_1_numInt[1], exam_1_numInt[0] - exam_1_numInt[1]);
+            Console.WriteLine("{0} * {1} = {2}", exam_1_numInt[0], exam_1_numInt[1], exam_1_numInt[0] * exam_1_numInt[1]);
+            Console.WriteLine("{0} / {1} = {2}", exam_1_numInt[0], exam_1_numInt[1], exam_1_numInt[0] / exam_1_numInt[1]);
+
+            //3. 섭씨온도를 화씨온도로 변환하기
+            Console.WriteLine("섭씨온도를 입력해주세요 : ");
+            string exam_1_temperature = Console.ReadLine();
+            float exam_1_numTemperature = float.Parse(exam_1_temperature) * 9/5 + 32;
+            Console.WriteLine("화씨온도는 : {0} F입니다", exam_1_numTemperature);
+
+            //4. BMI 계산기 만들기
+            Console.WriteLine("몸무게(kg)와 키(cm)를 띄어쓰기로 구분하여 입력해 주세요 : ");
+            string exam_1_BMI = Console.ReadLine();
+            string[] exam_1_BMISprit = exam_1_BMI.Split(' ');
+            float exam_1_weight = float.Parse(exam_1_BMISprit[0]);
+            float exam_1_height = float.Parse(exam_1_BMISprit[1]) / 100;
+            float exam_1_BMIf = exam_1_weight / (exam_1_height * exam_1_height);
+            Console.WriteLine("당신의 BMI 지수는 {0} 입니다", exam_1_BMIf);
         }
     }
 }
