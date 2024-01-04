@@ -36,6 +36,14 @@
              * 
              */
 
+            //줄 바꿈 문자열 추가하여 다음 WriteLine 작성 시 하단에 출력
+            Console.WriteLine(10);
+            Console.WriteLine(3.141592);
+            Console.WriteLine(3 + 3);
+
+            //줄 바꿈 문자열을 추가하지 않아 바로 이어서 출력
+            Console.Write("Hello!");
+            Console.Write("We are Learning!");
         }
     }
 }
