@@ -44,6 +44,19 @@
             //줄 바꿈 문자열을 추가하지 않아 바로 이어서 출력
             Console.Write("Hello!");
             Console.Write("We are Learning!");
+
+            //이스케이프 시퀸스 : 문자열 안에 삽입하는 특수 기호
+            /*
+             *  \' : 작은 따옴표 삽입
+             *  \" : 큰 따옴표 삽입
+             *  \| : 역슬래시(|) 삽입
+             *  \n : 줄 바꿈 삽입
+             *  \r : 현재 줄 맨 앞으로 이동
+             *  \t : 탭 삽입
+             *  \b : 백 스페이스 삽입
+             */
+            Console.WriteLine("\\\n");
+            Console.WriteLine("\'\tHello!\b\"");
         }
     }
 }
